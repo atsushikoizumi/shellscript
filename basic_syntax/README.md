@@ -1,5 +1,4 @@
-# shellscript
-shellscript sample code.<br>
+# shellscript sample code
 
 dirname<br>
 date<br>
