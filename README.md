@@ -1,8 +1,7 @@
-# shellscript
-Shellscript のサンプルをまとめています。<br>
+shellscript のサンプルをまとめています。
 
 # basic_syntax
-Shellscript の基本的な構文をまとめています。<br>
+shellscript の基本的な構文をまとめています。<br>
 while,for,if,read,function,case<br>
 
 # postgresql_audit
