@@ -1,4 +1,3 @@
-set head off
 set termout off
 set feedback off
 set pagesize 0
