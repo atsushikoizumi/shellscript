@@ -213,9 +213,10 @@ done
 
 
 ### while read line
+# 改行コードがないときに処理されない事象を解消
 echo "bbbb" >> ${SCRIPT_DIR}/sample.txt
 echo "cccc" >> ${SCRIPT_DIR}/sample.txt
-while read line
+while read line  || [ -n "${line}" ];
 do
     echo $line
 done < ${SCRIPT_DIR}/sample.txt
