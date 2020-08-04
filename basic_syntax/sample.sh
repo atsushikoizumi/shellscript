@@ -31,8 +31,16 @@ echo ${a[0]} # 2
 echo ${a[1]} # 4
 echo ${a[@]} # 2 4 6
 echo ${#a[@]} # 3
-d=(`date`)
-echo ${d[3]} # 18:14:54
+
+### 配列の区切り文字指定 control IFS (Internal Filed Separator)
+b="a,b,c"
+OLDIFS=$IFS           # 標準の区切り文字を保存
+IFS=,                 # 区切り文字をカンマに指定
+arr=($(echo "${b}"))  # 配列にする
+echo ${arr[1]}        # b
+IFS=$OLDIFS           # 標準の区切り文字に戻し
+
+
 
 
 ### if ディレクトリ有無
@@ -213,9 +221,10 @@ done
 
 
 ### while read line
+# 改行コードがないときに処理されない事象を解消
 echo "bbbb" >> ${SCRIPT_DIR}/sample.txt
 echo "cccc" >> ${SCRIPT_DIR}/sample.txt
-while read line
+while read line  || [ -n "${line}" ];
 do
     echo $line
 done < ${SCRIPT_DIR}/sample.txt
