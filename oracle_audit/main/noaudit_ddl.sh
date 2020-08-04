@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # [Description]
-# Oracle RDS 監査設定スクリプト
+# Oracle RDS 監査設定解除用スクリプト
 #
 #
 
@@ -31,14 +31,16 @@ fi
 NAME=$(basename $0)
 LOG_FILE=${LOG_PATH}/${NAME%.*}.log
 
+# Start
+push_message 1 "start."
+
 # Run Functions
 check_connection
-audit_DDL
-audit_DML
-
+get_info_audit_DDL
+noaudit_DDL
+get_info_audit_DDL
 
 # ALL Success End
-echo ""
-date "+%Y-%m-%d %H:%M:%S all success end." >> ${LOG_FILE}
-echo "all success end."
+push_message 1 "all success end."
+push_message 3 "all success end."
 echo ""
